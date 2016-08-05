@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Scrolling Nav - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#location">Location</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>My Virtual Home</h1>
+                    <p>Welcome to your virtual home. We will guide you through your journey to home ownership.</p>
+                    <div class="circle-container">
+                        <div id="location-summary" class="btn btn-default deg0">Location
+                        </div>
+                        <div id="buyer-summary" class="btn btn-default deg1">Buyer</div>
+                        <div id="house-summary" class="btn btn-default deg2">House</div>
+                        <div id="virtual-home" class="btn btn-default center">Virtual Home</div>
+                    </div>
+
+
+                    
+                    <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location-section fill">
+        <div class="container fill">
+            <div class="vertical-fill fill">
+                Location
+                <div class="form-group">
+                    <input class="placepicker form-control" data-map-container-id="collapseOne" value="CBD and Inner Suburbs, Brisbane, Queensland, Australia"/>
+                </div>
+                <div id="collapseOne" class="collapse fill">
+                  <div class="placepicker-map thumbnail fill"></div>
+                </div> 
+            </div>
+        </div>
+    <!-- Location Section -->
+    <section id="buyer" class="buyer-section fill">
+        <div class="fill">
+            Buyer
+            <div>
+                Number of Adults?
+                <div class="radio-inline"><label><input type="radio" name="adults">One</label></div>
+                <div class="radio-inline"><label><input type="radio" name="adults">Two</label></div>
+                <div class="radio-inline"><label><input type="radio" name="adults">Modern Family</label></div>
+            </div>
+            <div>
+                Children?
+                <div id="children" class="container">
+                    <div class="row">
+                        <div class="col-sm-4">Child</div>
+                        <div class="col-sm-8">Age</div>
+                    </div>
+                    <div id="childDiv1" class="row">
+                    <label class="col-sm-4">1 :</label><input type="text" id="child1" class="col-sm-8 child" name="child1" />
+                    </div>
+            </div>
+            <button id="addChildButton">Add Child</button>
+            <div class="fill"></div>
+        </div>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>About Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+<section id="services" class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Services Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Contact Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Scrolling Nav JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
+
+    <script src="src/js/jquery.placepicker.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&language=en&libraries=places">
+    </script>
+
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var counter = 1;
+        $(".placepicker").placepicker()
+        $("#addChildButton").click(function () {
+              counter++;
+              $('<div/>',{'class': 'row', 'id':'childDiv' + counter}).html(
+                      $('<label/>').html('<label class="col-sm-4">' + counter + ' : ' )
+            )
+            .append( $('<input type="text">').attr({'id':'child' + counter,'name':'age' + counter, 'class': 'col-sm-8'}) )
+            .appendTo( '#children' )       
+        });
+    });
+    </script>
+
+</body>
+
+</html>
