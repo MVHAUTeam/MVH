@@ -100,11 +100,11 @@
             <div class="h2 row">Is the property for:</div>
             <div id="live-btns" class="btn-group row form-inline" data-toggle="buttons">
                 <label class="btn btn-default active">
-                    <input id="live-yes-btn" type="radio" name="help" autocomplete="off">
+                    <input id="live-yes-btn" type="radio" name="live" value="yes" checked>
                     Living in
                 </label>
                 <label class="btn btn-default">
-                    <input id="live-no-btn" type="radio" name="help" autocomplete="off" checked>
+                    <input id="live-no-btn" type="radio" name="live" value="no">
                     Investment
                 </label>
             </div>
@@ -114,19 +114,19 @@
             <div id="land-group" class="input-group">
                 <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-default active">
-                        <input id="adults-1-btn" type="radio" name="adults" autocomplete="off" checked>
+                        <input id="block-1-btn" type="radio" name="block" value=1 checked>
                         Small Block 
                     </label>
                     <label class="btn btn-default">
-                        <input id="adults-1-btn" type="radio" name="adults" autocomplete="off" checked>
+                        <input id="block-2-btn" type="radio" name="block" value=2>
                         Medium Block
                     </label>
                     <label class="btn btn-default">
-                        <input id="adults-1-btn" type="radio" name="adults" autocomplete="off" checked>
+                        <input id="block-3-btn" type="radio" name="block" value=3>
                         Large Block
                     </label>
                     <label class="btn btn-default">
-                        <input id="adults-1-btn" type="radio" name="adults" autocomplete="off" checked>
+                        <input id="block-4-btn" type="radio" name="block" value=4>
                         Acreage
                     </label>
                 </div>
@@ -142,16 +142,16 @@
             </select>
             </div>
             <div class="form-group row">
-            <label for="carpark-selector">Carparks</label>
-            <select id="carpark-selector" class="form-control">
+            <label for="selector-carpark">Carparks</label>
+            <select id="selector-carpark" class="form-control">
                 <option>None</option>
                 <option>1 Carpark</option>
                 <option>2 Carparks</option>
             </select>
             </div>
             <div class="form-group row">
-            <label for="carpark-selector">House Size</label>
-            <select id="carpark-selector" class="form-control">
+            <label for="selector-size">House Size</label>
+            <select id="selector-size" class="form-control">
                 <option>Cosy</option>
                 <option>Comfortable</option>
                 <option>Spacious</option>
@@ -159,8 +159,8 @@
             </select>
             </div>
             <div class="form-group row">
-            <label for="carpark-selector">House Age</label>
-            <select id="carpark-selector" class="form-control">
+            <label for="selector-age">House Age</label>
+            <select id="selector-age" class="form-control">
                 <option>Knock-down</option>
                 <option>Old</option>
                 <option>Renovated</option>
@@ -198,15 +198,15 @@
             <div class="row"><h2>Number of Adults</h2></div>
             <div class="btn-group row" data-toggle="buttons">
                 <label class="btn btn-default active">
-                    <input id="adults-1-btn" type="radio" name="adults" autocomplete="off" checked>
+                    <input id="adults-1-btn" type="radio" name="adults" checked>
                     One
                 </label>
                 <label class="btn btn-default">
-                    <input id="adults-1-btn" type="radio" name="adults" autocomplete="off" checked>
+                    <input id="adults-2-btn" type="radio" name="adults">
                     Two
                 </label>
                 <label class="btn btn-default">
-                    <input id="adults-1-btn" type="radio" name="adults" autocomplete="off" checked>
+                    <input id="adults-3-btn" type="radio" name="adults">
                     Modern Family
                 </label>
             </div>
@@ -222,41 +222,41 @@
             <div class="form-inline row">
             <div class="input-group">
                 <div class="input-group-addon">$</div>
-                <input type="text" class="form-control" name="rent"  placeholder="Savings per">
+                <input id="inputSavings" type="text" class="form-control" name="savings"  placeholder="Savings per">
             </div>
-            <select class="form-control">
-                <option>Fortnight</option>
-                <option>Week</option>
-                <option>Month</option>
-                <option>Year</option>
+            <select id="selectSavings" class="form-control">
+                <option value=7>Week</option>
+                <option value=14>Fortnight</option>
+                <option value=30>Month</option>
+                <option value=365>Year</option>
             </select>
             </div>
             <div class="row h2">Current Living Arrangements</div>
             <div class="btn-group row form-inline" data-toggle="buttons">
                 <label class="btn btn-default active">
-                    <input id="living-rent-btn" type="radio" name="living" autocomplete="off" checked>
+                    <input id="living-rent-btn" type="radio" name="living" checked>
                     Renting
                 </label>
                 <label class="btn btn-default">
-                    <input id="living-share-btn" type="radio" name="living" autocomplete="off">
+                    <input id="living-share-btn" type="radio" name="living">
                     Share House
                 </label>
                 <label class="btn btn-default">
-                    <input id="living-parents-btn" type="radio" name="living" autocomplete="off">
+                    <input id="living-parents-btn" type="radio" name="living">
                     Living with Parents
                 </label>
             </div>
             <div class="form-inline row">
             <div class="input-group">
                 <div class="input-group-addon">$</div>
-                <input type="text" class="form-control" name="rent"  placeholder="Rent">
+                <input id="inputRent" type="text" class="form-control" name="rent"  placeholder="Rent">
             </div>
-            <select class="form-control">
-                <option>Fortnightly</option>
-                <option>Weekly</option>
+            <select id="selectRent" class="form-control">
+                <option value=14>Fortnightly</option>
+                <option value=7>Weekly</option>
             </select>
             </div>
-            <div class="row bottom"><a class="btn btn-primary page-scroll" href="#house">Next</a></div>
+            <div class="row bottom"><a class="btn btn-primary page-scroll" href="#finance">Next</a></div>
         </div>
     </section>
 
@@ -268,18 +268,18 @@
     <label class="control-label h2" for="inputDeposit">How much is available as a deposit now?</label>
     <div class="input-group">
         <div class="input-group-addon">$</div>
-        <input id="inputDeposit" type="text" class="form-control" name="Deposit"  placeholder="deposit">
+        <input id="inputDeposit" type="text" class="form-control" name="deposit"  placeholder="deposit">
         </div>
     </div>
     <div class="form-horizontal">
     <div class="h2 row">Are other people helping you with the deposit?</div>
     <div id="help-btns" class="btn-group row form-inline" data-toggle="buttons">
         <label class="btn btn-default active">
-            <input id="help-yes-btn" type="radio" name="help" autocomplete="off">
+            <input id="help-yes-btn" type="radio" name="help" value="Yes">
             Yes
         </label>
         <label class="btn btn-default">
-            <input id="help-no-btn" type="radio" name="help" autocomplete="off" checked>
+            <input id="help-no-btn" type="radio" name="help" value="no" checked>
             No
         </label>
     </div>
@@ -291,8 +291,16 @@
     </div>
     <div id="childDiv" class="form-inline" width="20em"></div>
 
-    <div class="row bottom"><a class="btn btn-primary page-scroll" href="#house">Next</a></div>
+    <div class="row bottom"><a class="btn btn-primary results" href="#results">Next</a></div>
     </div>
+    </section>
+
+
+
+    <section id="results" class="section">
+        <div class="fill container">
+            Some results
+        </div>
     </section>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
@@ -315,7 +323,7 @@
         $("#addChildButton").click(function () {
             counter++;
             $('<input type="text">')
-            .attr({'id':'child' + counter,'name':'age' + counter, 'class': 'form-control', 'placeholder':"Age"})
+            .attr({'id':'child' + counter,'name':'child-age', 'class': 'form-control child-age', 'placeholder':"Age"})
             .appendTo( '#childDiv' )
         });
         var debtCounter = 0;
@@ -324,7 +332,7 @@
             var group = $('<div>').attr({'class': 'input-group form-inline'})
             group.append($('<div>').attr({'class':'input-group-addon'}).html("$"));
             group.append($('<input type="text">').attr({'id':'debt' + counter,
-                                                        'name':'debt' + counter,
+                                                        'name':'debt',
                                                         'class': 'form-control', 'placeholder':"Amount"}));
            group.appendTo( '#debtDiv' )
         });
