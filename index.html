@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Scrolling Nav - Start Bootstrap Template</title>
+    <title>My Virtual Home</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand page-scroll" href="#page-top">Virtual Home</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,16 +52,16 @@
                         <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="#house">House</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#location">Location</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#buyer">Buyer</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#house">House</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#finance">Finance</a>
                     </li>
                 </ul>
             </div>
@@ -87,11 +87,92 @@
 
 
                     
-                    <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a>
+                    <a class="btn btn-default page-scroll" href="#location">Click Me to Scroll Down!</a>
                 </div>
             </div>
         </div>
     </section>
+
+
+    <section id="house" class="section fill">
+        <div class="container fill">
+            <div class="form-horizontal">
+            <div class="h2 row">Is the property for:</div>
+            <div id="live-btns" class="btn-group row form-inline" data-toggle="buttons">
+                <label class="btn btn-default active">
+                    <input id="live-yes-btn" type="radio" name="help" autocomplete="off">
+                    Living in
+                </label>
+                <label class="btn btn-default">
+                    <input id="live-no-btn" type="radio" name="help" autocomplete="off" checked>
+                    Investment
+                </label>
+            </div>
+            <div class="row"><h2>Tell me more about it</h2></div>
+            <div class="row form-group">
+            <label for="land-group">Land</label>
+            <div id="land-group" class="input-group">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default active">
+                        <input id="adults-1-btn" type="radio" name="adults" autocomplete="off" checked>
+                        Small Block 
+                    </label>
+                    <label class="btn btn-default">
+                        <input id="adults-1-btn" type="radio" name="adults" autocomplete="off" checked>
+                        Medium Block
+                    </label>
+                    <label class="btn btn-default">
+                        <input id="adults-1-btn" type="radio" name="adults" autocomplete="off" checked>
+                        Large Block
+                    </label>
+                    <label class="btn btn-default">
+                        <input id="adults-1-btn" type="radio" name="adults" autocomplete="off" checked>
+                        Acreage
+                    </label>
+                </div>
+            </div>
+            </div>
+            <div class="row form-group">
+            <label for="selector-bedrooms">Bedrooms</label>
+            <select id="selector-bedrooms" class="form-control">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4+</option>
+            </select>
+            </div>
+            <div class="form-group row">
+            <label for="carpark-selector">Carparks</label>
+            <select id="carpark-selector" class="form-control">
+                <option>None</option>
+                <option>1 Carpark</option>
+                <option>2 Carparks</option>
+            </select>
+            </div>
+            <div class="form-group row">
+            <label for="carpark-selector">House Size</label>
+            <select id="carpark-selector" class="form-control">
+                <option>Cosy</option>
+                <option>Comfortable</option>
+                <option>Spacious</option>
+                <option>Expansive</option>
+            </select>
+            </div>
+            <div class="form-group row">
+            <label for="carpark-selector">House Age</label>
+            <select id="carpark-selector" class="form-control">
+                <option>Knock-down</option>
+                <option>Old</option>
+                <option>Renovated</option>
+                <option>New</option>
+            </select>
+            </div>
+            </div>
+
+            <div class="row bottom"><a class="btn btn-primary page-scroll" href="#location">Next</a></div>
+        </div>
+    </section>
+
 
     <!-- Location Section -->
     <section id="location" class="section fill">
@@ -105,7 +186,7 @@
                   <div class="placepicker-map thumbnail fill" style="height:40em;max-height:80%"></div>
                 </div> 
             </div>
-            <div class="row bottom"><a class="btn btn-primary" href="#buyer">Next</a></div>
+            <div class="row bottom"><a class="btn btn-primary page-scroll" href="#buyer">Next</a></div>
         </div>
     </section>
 
@@ -175,12 +256,12 @@
                 <option>Weekly</option>
             </select>
             </div>
-            <div class="row bottom"><a class="btn btn-primary" href="#house">Next</a></div>
+            <div class="row bottom"><a class="btn btn-primary page-scroll" href="#house">Next</a></div>
         </div>
     </section>
 
-    <!-- Location Section -->
-    <section id="house" class="section">
+    <!-- Finance Section -->
+    <section id="finance" class="section">
     <div class="fill container">
 
     <div class="form-horizontal row">
@@ -210,7 +291,7 @@
     </div>
     <div id="childDiv" class="form-inline" width="20em"></div>
 
-    <div class="row bottom"><a class="btn btn-primary" href="#house">Next</a></div>
+    <div class="row bottom"><a class="btn btn-primary page-scroll" href="#house">Next</a></div>
     </div>
     </section>
     <!-- jQuery -->
