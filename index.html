@@ -96,15 +96,16 @@
     <!-- Location Section -->
     <section id="location" class="location-section fill">
         <div class="container fill">
-            <div class="vertical-fill fill">
+            <div>
                 Location
                 <div class="form-group">
                     <input class="placepicker form-control" data-map-container-id="collapseOne" value="CBD and Inner Suburbs, Brisbane, Queensland, Australia"/>
                 </div>
                 <div id="collapseOne" class="collapse in fill">
-                  <div class="placepicker-map thumbnail fill"></div>
+                  <div class="placepicker-map thumbnail fill" style="height:40em;max-height:80%"></div>
                 </div> 
             </div>
+            <button class="btn btn-primary">Next</button>
         </div>
 
 
@@ -136,12 +137,39 @@
             </div>
             <div id="childDiv" class="form-inline" width="20em"></div>
             <div class="row"><h2>Savings Capacity</h2></div>
-            <form>
-            <div class="form-inline">
-            <input type="text" class="form-control" name="savings"  placeholder="Savings"/>
+            <div class="form-inline row">
+            <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input type="text" class="form-control" name="rent"  placeholder="Savings per">
+            </div>
             <select class="form-control">
-                <option>Yearly</option>
-                <option>Monthly</option>
+                <option>Fortnight</option>
+                <option>Week</option>
+                <option>Month</option>
+                <option>Year</option>
+            </select>
+            </div>
+            <div class="row h2">Current Living Arrangements</div>
+            <div class="btn-group row form-inline" data-toggle="buttons">
+                <label class="btn btn-default active">
+                    <input id="living-rent-btn" type="radio" name="living" autocomplete="off" checked>
+                    Renting
+                </label>
+                <label class="btn btn-default">
+                    <input id="living-share-btn" type="radio" name="living" autocomplete="off">
+                    Share House
+                </label>
+                <label class="btn btn-default">
+                    <input id="living-parents-btn" type="radio" name="living" autocomplete="off">
+                    Living with Parents
+                </label>
+            </div>
+            <div class="form-inline row">
+            <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input type="text" class="form-control" name="rent"  placeholder="Rent">
+            </div>
+            <select class="form-control">
                 <option>Fortnightly</option>
                 <option>Weekly</option>
             </select>
@@ -149,6 +177,38 @@
             <div class="fill"></div>
         </div>
 
+    <!-- Location Section -->
+    <section id="house" class="house-section fill">
+    <div class="container">
+
+    <div class="form-horizontal row">
+    <label class="control-label h2" for="inputDeposit">How much is available as a deposit now?</label>
+    <div class="input-group">
+        <div class="input-group-addon">$</div>
+        <input id="inputDeposit" type="text" class="form-control" name="Deposit"  placeholder="deposit">
+        </div>
+    </div>
+    <div class="form-horizontal">
+    <div class="h2 row">Are other people helping you with the deposit?</div>
+    <div id="help-btns" class="btn-group row form-inline" data-toggle="buttons">
+        <label class="btn btn-default active">
+            <input id="help-yes-btn" type="radio" name="help" autocomplete="off">
+            Yes
+        </label>
+        <label class="btn btn-default">
+            <input id="help-no-btn" type="radio" name="help" autocomplete="off" checked>
+            No
+        </label>
+    </div>
+    <div class="row">
+    <div class="h2">Children</div>
+    <button id=addChildButton class="btn btn-primary">
+        + Add Child
+    </button>
+    </div>
+    <div id="childDiv" class="form-inline" width="20em"></div>
+
+    </div>
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
