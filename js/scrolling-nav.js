@@ -67,7 +67,7 @@ $(function() {
         console.log(finance.initialDeposit);
         var depositPoints = [];
 
-        var testPropertyVal = 600000;
+        var testPropertyVal = Math.floor(Math.random() * 300000 + 300000);
         var propertyVal = testPropertyVal;
         var totalExpense = propertyVal * 1.03;
         var depositGoal = totalExpense * 0.2;
