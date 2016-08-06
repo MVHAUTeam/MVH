@@ -91,7 +91,7 @@ $(function() {
             xaxis: {min: 2016, max: (depositPoints.length - 8) / 12 + 2016,
             ticks: function(axis) {
                     ticks = [];
-                    for(var i = Math.floor(axis.min); i < axis.max; i+= Math.ceil((axis.max - axis.min) / 5)) {
+                    for(var i = Math.floor(axis.min); i < axis.max; i+= 1) {
                         ticks.push(parseInt(i));
                     }
                     return ticks;
@@ -116,7 +116,7 @@ $(function() {
                 console.log(mortgage * (monthlyMortgageInterest));
                 break;
             }
-            mortgagePoints.push([(mortgagePoints.length - 8) / 12 + 2016, mortgage]);
+            mortgagePoints.push([(mortgagePoints.length - 8 + depositPoints.length) / 12 + 2016, mortgage]);
             mortgage = mortgage * (1 + monthlyMortgageInterest) - monthlyMaxRepayment; 
         }
         mortgage = totalExpense - depositGoal;
@@ -128,11 +128,12 @@ $(function() {
                 console.log(mortgage * (monthlyMortgageInterest));
                 break;
             }
-            mortgagePoints2.push([(mortgagePoints2.length - 8) / 12 + 2016, mortgage]);
+            mortgagePoints2.push([(mortgagePoints2.length - 8 + depositPoints.length) / 12 + 2016, mortgage]);
             mortgage = mortgage * (1 + monthlyMortgageInterest) - monthlyMinRepayment; 
         }
         $.plot("#placeholder", [depositPoints], options);
-        options.xaxis.max = (Math.max(mortgagePoints.length, mortgagePoints2.length) - 8) / 12 + 2016;
+        options.xaxis.min = (depositPoints.length - 8) / 12 + 2016;
+        options.xaxis.max = (depositPoints.length + Math.max(mortgagePoints.length, mortgagePoints2.length) - 8) / 12 + 2016;
         options.yaxis.max = totalExpense - depositGoal;
         $.plot("#placeholder-mortgage", [mortgagePoints, mortgagePoints2], options);
         var maxLoan = Math.min(buyer.income, Math.max(buyer.income / 12 * 0.5, monthlyMaxRepayment)) * (1 - Math.pow(1 + monthlyMortgageInterest,-300)) / monthlyMortgageInterest; 
