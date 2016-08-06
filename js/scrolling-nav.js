@@ -134,7 +134,7 @@ $(function() {
         var maxLoan = Math.max(monthlyMaxRepayment * 0.9, buyer.income / 12 * 0.5) * (1 - Math.pow(1 + monthlyMortgageInterest,-300)) / monthlyMortgageInterest; 
         $('#max-loan').html('$' + Math.floor(maxLoan));
         $('#virt-val').html('$' + propertyVal);
-        $('#loan-val').html('$' + initialMortgage);
+        $('#loan-val').html('$' + Math.floor(initialMortgage));
         $('#deposit-val').html('$' + Math.floor(depositGoal));
         $('#deposit-time').html(depositPoints.length + " months");
         $('#loan-time').html(mortgagePoints.length + " months");
