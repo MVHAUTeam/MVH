@@ -74,8 +74,10 @@ $(function() {
         var predictedDeposit = finance.initialDeposit;
         var monthlyInterestRate = .03 / 12;
         var monthlySavings = buyer.savings / buyer.savingsInterval * 30;
+        var tooMuch = false;
         while(predictedDeposit < depositGoal) {
-            if(depositPoints.length > 10000) {
+            if(depositPoints.length > 120) {
+                tooMuch = true;
                 console.log("Loop ending early for deposit");
                 console.log(predictedDeposit);
                 console.log(monthlySavings);
@@ -103,10 +105,11 @@ $(function() {
         var mortgagePoints = [];
         var mortgagePoints2 = [];
         var monthlyMortgageInterest = 0.04 / 12;
-        var monthlyMaxRepayment = monthlySavings + buyer.rent / buyer.rentInterval * 30;
+        var monthlyMaxRepayment = Math.min(buyer.income / 12, monthlySavings + buyer.rent / buyer.rentInterval * 30);
         var monthlyMinRepayment = monthlyMortgageInterest * mortgage / (1 - Math.pow((1 + monthlyMortgageInterest), -25 * 12));
         while(mortgage >= 0) {
             if(mortgagePoints.length > (12 * 25)) {
+                tooMuch = true;
                 console.log("Mortgage");
                 console.log(predictedDeposit);
                 console.log(monthlyMaxRepayment);
@@ -119,6 +122,7 @@ $(function() {
         mortgage = totalExpense - depositGoal;
         while(mortgage >= 0) {
             if(mortgagePoints2.length > (12 * 25)) {
+                tooMuch = true;
                 console.log("Mortgage");
                 console.log(predictedDeposit);
                 console.log(mortgage * (monthlyMortgageInterest));
@@ -131,13 +135,28 @@ $(function() {
         options.xaxis.max = (Math.max(mortgagePoints.length, mortgagePoints2.length) - 8) / 12 + 2016;
         options.yaxis.max = totalExpense - depositGoal;
         $.plot("#placeholder-mortgage", [mortgagePoints, mortgagePoints2], options);
-        var maxLoan = Math.max(monthlyMaxRepayment * 0.9, buyer.income / 12 * 0.5) * (1 - Math.pow(1 + monthlyMortgageInterest,-300)) / monthlyMortgageInterest; 
-        $('#max-loan').html('$' + Math.floor(maxLoan));
-        $('#virt-val').html('$' + propertyVal);
-        $('#loan-val').html('$' + Math.floor(initialMortgage));
-        $('#deposit-val').html('$' + Math.floor(depositGoal));
-        $('#deposit-time').html(depositPoints.length + " months");
-        $('#loan-time').html(mortgagePoints.length + " months");
+        var maxLoan = Math.min(buyer.income, Math.max(buyer.income / 12 * 0.5, monthlyMaxRepayment)) * (1 - Math.pow(1 + monthlyMortgageInterest,-300)) / monthlyMortgageInterest; 
+        if(!tooMuch && monthlyMaxRepayment > monthlyMinRepayment) {
+            $('#max-loan').html('$' + Math.floor(maxLoan));
+            $('#virt-val').html('$' + propertyVal);
+            $('#loan-val').html('$' + Math.floor(initialMortgage));
+            $('#deposit-val').html('$' + Math.floor(depositGoal));
+            $('#deposit-time').html(depositPoints.length + " months");
+            $('#loan-time').html(mortgagePoints.length + " months");
+            $('#loan-pay').html('$' + Math.floor(monthlyMaxRepayment));
+            $('#loan-min').html('$' + Math.floor(monthlyMinRepayment));
+        } else {
+            $('#max-loan').html('$' + Math.floor(maxLoan));
+            $('#virt-val').html('$' + propertyVal);
+            $('#loan-val').html('Unachievable');
+            $('#deposit-val').html('$' + Math.floor(depositGoal));
+            $('#deposit-time').html('');
+            $('#loan-time').html('');
+            $('#loan-pay').html('');
+            $('#loan-min').html('$' + Math.floor(monthlyMinRepayment));
+            $('#placeholder').empty();
+            $('#placeholder-mortgage').empty();
+        }
     });
     event.preventDefault();
 });
