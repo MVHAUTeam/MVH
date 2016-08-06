@@ -177,15 +177,22 @@
 
     <!-- Location Section -->
     <section id="location" class="section fill">
-        <div class="container fill">
-            <div>
-                Location
+        <div class="container fill" style="height:90%">
+            <div style="height:60%">
+                <h4>Location</h4>
                 <div class="form-group">
                     <input class="placepicker form-control" data-map-container-id="collapseOne" value="CBD and Inner Suburbs, Brisbane, Queensland, Australia"/>
                 </div>
                 <div id="collapseOne" class="collapse in fill">
                   <div class="placepicker-map thumbnail fill" style="height:40em;max-height:80%"></div>
                 </div> 
+            <div class="form-inline">
+            <h4>Property Value</h4>
+            <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input id="inputValue" type="text" class="form-control" name="value"  placeholder="Property Value">
+            </div>
+            </div>
             </div>
             <div class="row bottom"><a class="btn btn-primary results" href="#buyer">Next</a></div>
         </div>
@@ -343,7 +350,15 @@
     
     <script type="text/javascript">
     $(document).ready(function() {
-        $(".placepicker").placepicker();
+        $(".placepicker").placepicker(
+            {placeChanged: function(place) {
+                    var postcode = parseInt($('.placepicker').val().match(/\d\d\d\d/));
+                    postcode = isNaN(postcode) ? 4000 : postcode;
+                    var psuedovalue = 10000 * Math.floor((80 + postcode) % 100 / 1.4);
+                    $('#inputValue').val(psuedovalue);
+                    console.log(psuedovalue);
+                }}
+        );
         var counter = 0;
         $("#addChildButton").click(function () {
             counter++;

@@ -1,4 +1,5 @@
 //jQuery to collapse the navbar on scroll
+var propertyVal = Math.floor(Math.random() * 300000 + 300000);
 $(window).scroll(function() {
     if ($(".navbar").offset().top > 50) {
         $(".navbar-fixed-top").addClass("top-nav-collapse");
@@ -67,8 +68,6 @@ $(function() {
         console.log(finance.initialDeposit);
         var depositPoints = [];
 
-        var testPropertyVal = Math.floor(Math.random() * 300000 + 300000);
-        var propertyVal = testPropertyVal;
         var totalExpense = propertyVal * 1.03;
         var depositGoal = totalExpense * 0.2;
         var initialMortgage = totalExpense - depositGoal;
@@ -143,6 +142,13 @@ $(function() {
     event.preventDefault();
 });
 
+$(function() {
+    $('#inputValue').change(function(ev) {
+        propertyVal = parseFloat($(ev.target).val());
+        console.log(propertyVal);
+    });
+
+});
 /*
             <tr><td>Max Loan Value</td><td id="max-loan"></td></tr>
                         <tr><td>Virtual Home Value</td><td id="virt-val"></td></tr>
