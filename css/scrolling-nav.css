@@ -46,7 +46,9 @@ of those sections to manage the look and feel of the site. */
     position: absolute;
     bottom: 5%;
 }
-
+.inline {
+    float: left;
+}
 .circle-container {
     position: relative;
     width: 24em;
