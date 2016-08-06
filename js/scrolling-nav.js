@@ -48,6 +48,7 @@ $(function() {
             living: $('[name="living"]:checked').val(),
             rent: parseFloat($('#inputRent').val()),
             rentInterval: $('#selectRent').val(),
+            income: parseFloat($('#inputIncome').val()),
         };
         buyer.savings = isNaN(buyer.savings) ? 200 : buyer.savings;
         buyer.rent = isNaN(buyer.rent) ? 800 : buyer.rent;
@@ -62,12 +63,15 @@ $(function() {
                 .toArray()
         }
         finance.initialDeposit = isNaN(finance.initialDeposit) ? 0 : finance.initialDeposit;
+        buyer.income = isNaN(buyer.income) ? 50000 : buyer.income;
         console.log(finance.initialDeposit);
         var depositPoints = [];
 
         var testPropertyVal = 600000;
-        var totalExpense = testPropertyVal * 1.03;
+        var propertyVal = testPropertyVal;
+        var totalExpense = propertyVal * 1.03;
         var depositGoal = totalExpense * 0.2;
+        var initialMortgage = totalExpense - depositGoal;
         var predictedDeposit = finance.initialDeposit;
         var monthlyInterestRate = .03 / 12;
         var monthlySavings = buyer.savings / buyer.savingsInterval * 30;
@@ -124,16 +128,26 @@ $(function() {
             mortgagePoints2.push([(mortgagePoints2.length - 8) / 12 + 2016, mortgage]);
             mortgage = mortgage * (1 + monthlyMortgageInterest) - monthlyMinRepayment; 
         }
-        console.log(monthlyMinRepayment);
-        console.log(monthlyMortgageInterest);
-        console.log(mortgagePoints2);
         $.plot("#placeholder", [depositPoints], options);
         options.xaxis.max = (Math.max(mortgagePoints.length, mortgagePoints2.length) - 8) / 12 + 2016;
         options.yaxis.max = totalExpense - depositGoal;
         $.plot("#placeholder-mortgage", [mortgagePoints, mortgagePoints2], options);
+        var maxLoan = Math.max(monthlyMaxRepayment * 0.9, buyer.income / 12 * 0.5) * (1 - Math.pow(1 + monthlyMortgageInterest,-300)) / monthlyMortgageInterest; 
+        $('#max-loan').html('$' + Math.floor(maxLoan));
+        $('#virt-val').html('$' + propertyVal);
+        $('#loan-val').html('$' + initialMortgage);
+        $('#deposit-val').html('$' + Math.floor(depositGoal));
+        $('#deposit-time').html(depositPoints.length + " months");
+        $('#loan-time').html(mortgagePoints.length + " months");
     });
     event.preventDefault();
 });
 
-
-
+/*
+            <tr><td>Max Loan Value</td><td id="max-loan"></td></tr>
+                        <tr><td>Virtual Home Value</td><td id="virt-val"></td></tr>
+                        <tr><td>Deposit Value</td><td id="deposit-val"></td></tr>
+                        <tr><td>Time to Deposit</td><td id="deposit-time"></td></tr>
+                        <tr><td>Loan Value</td><td id="loan-val"></td></tr>
+                        <tr><td>Time to Pay off</td><td id="loan-time"></td></tr>
+*/
