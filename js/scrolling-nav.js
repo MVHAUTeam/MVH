@@ -78,13 +78,20 @@ $(function() {
                 console.log(monthlySavings);
                 break;
             }
-            depositPoints.push([(depositPoints.length - 8) / 12,predictedDeposit]);
+            depositPoints.push([(depositPoints.length - 8) / 12 + 2016,predictedDeposit]);
             predictedDeposit = predictedDeposit * (1 + monthlyInterestRate) + monthlySavings;
         }
         console.log(depositPoints);
         var options = {
-            xaxis: {min: 0, max: (depositPoints.length - 8) / 12,
-                ticks: function(v) {return Math.floor((v - 8) / 12)}
+            xaxis: {min: 2016, max: (depositPoints.length - 8) / 12 + 2016,
+            ticks: function(axis) {
+                    ticks = [];
+                    for(var i = Math.floor(axis.min); i < axis.max; i+= Math.ceil((axis.max - axis.min) / 5)) {
+                        ticks.push(parseInt(i));
+                    }
+                    return ticks;
+                },
+            tickDecimals: 0,
             },
             yaxis: {min: 0, max: depositGoal, show: false}
         };
@@ -103,7 +110,7 @@ $(function() {
                 console.log(mortgage * (monthlyMortgageInterest));
                 break;
             }
-            mortgagePoints.push([(mortgagePoints.length - 8) / 12, mortgage]);
+            mortgagePoints.push([(mortgagePoints.length - 8) / 12 + 2016, mortgage]);
             mortgage = mortgage * (1 + monthlyMortgageInterest) - monthlyMaxRepayment; 
         }
         mortgage = totalExpense - depositGoal;
@@ -114,20 +121,19 @@ $(function() {
                 console.log(mortgage * (monthlyMortgageInterest));
                 break;
             }
-            mortgagePoints2.push([(mortgagePoints2.length - 8) / 12, mortgage]);
+            mortgagePoints2.push([(mortgagePoints2.length - 8) / 12 + 2016, mortgage]);
             mortgage = mortgage * (1 + monthlyMortgageInterest) - monthlyMinRepayment; 
         }
         console.log(monthlyMinRepayment);
         console.log(monthlyMortgageInterest);
         console.log(mortgagePoints2);
         $.plot("#placeholder", [depositPoints], options);
-        options.xaxis.max = (Math.max(mortgagePoints.length, mortgagePoints2.length) - 8) / 12;
+        options.xaxis.max = (Math.max(mortgagePoints.length, mortgagePoints2.length) - 8) / 12 + 2016;
         options.yaxis.max = totalExpense - depositGoal;
         $.plot("#placeholder-mortgage", [mortgagePoints, mortgagePoints2], options);
-        console.log(house);
-        console.log(postcode);
-        console.log(finance);
-        console.log(buyer);
     });
     event.preventDefault();
 });
+
+
+

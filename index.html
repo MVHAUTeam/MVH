@@ -296,9 +296,25 @@
     </section>
     <section id="results" class="section">
         <div class="fill container">
+            <div>
+                <div id="summary-box" class="inline" style="width:300px;height:500px">
+                    <div class="table-striped">
+                      <table class="table">
+                        <tr><td>Max Loan Value</td><td id="max-loan"></td></tr>
+                        <tr><td>Virtual Home Value</td><td id="virt-val"></td></tr>
+                        <tr><td>Deposit Value</td><td id="deposit-val"></td></tr>
+                        <tr><td>Time to Deposit</td><td id="deposit-time"></td></tr>
+                        <tr><td>Loan Value</td><td id="loan-val"></td></tr>
+                        <tr><td>Time to Pay off</td><td id="loan-time"></td></tr>
+                      </table>
+                    </div>
+                </div>
+                <div id="optimize-box" class="inline"></div>
+            </div>
+
             <div class="bottom">
-            <div id="placeholder" class="inline" style="width:500px;height:300px"></div>
-            <div id="placeholder-mortgage" class="inline" style="width:500px;height:300px"></div>
+            <div class="inline"><div class="h1 text-center">Deposit plan</div><div id="placeholder" style="width:300px;height:300px"></div></div>
+            <div class="inline"><div class="h1 text-center">Mortgage plan</div><div id="placeholder-mortgage" class="inline" style="width:800px;height:300px"></div></div>
             </div>
         </div>
     </section>
@@ -337,7 +353,7 @@
                                                         'class': 'form-control', 'placeholder':"Amount"}));
            group.appendTo( '#debtDiv' )
         });
-
+        $('a.results').click();
     });
     </script>
 
